@@ -117,6 +117,7 @@ let g:Powerline_symbols= "fancy"
 " prevent vim from giving a warning it the swp file is open 
 set shortmess=A
 "set foldmethod=syntax
+au BufReadPost *.launch set syntax=html
 set cursorline
 set history=1000
 set encoding=utf8
@@ -131,6 +132,11 @@ set nowritebackup
 set noswapfile
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+"cancel arrow keys to move 
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 "Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
 
@@ -268,7 +274,6 @@ endfunc
 
 " add comment for shell,Makefile
 func SetComment_sh()
-	call setline(3,"'''")
 	call setline(4, "#================================================================")
 	call setline(5, "#   Copyright (C) ".strftime("%Y")." * Ltd. All rights reserved.")
 	call setline(6, "#")
@@ -279,7 +284,6 @@ func SetComment_sh()
 	call setline(11, "#   Description : code is far away from bugs with the god animal protecting")
 	call setline(12, "#")
 	call setline(13, "#================================================================")
-	call setline(14, "'''")
 	call setline(15, "")
 	call setline(16, "")
 endfunc
@@ -294,11 +298,15 @@ func SetTitle()
 	elseif &filetype == 'sh'
 		call setline(1,"#! /bin/bash")
 		call setline(2,"")
+		call setline(3,"")
+		call setline(14,"")
 		call SetComment_sh()
 
 	elseif &filetype == 'python'
 		call setline(1,"#! /usr/bin/env python")
 		call setline(2,"# coding=utf-8")
+		call setline(3,"'''")
+		call setline(14, "'''")
 		call SetComment_sh()
 
 	else
