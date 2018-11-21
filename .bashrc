@@ -33,6 +33,7 @@ shopt -s checkwinsize
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
+shopt -s cdspell
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -149,6 +150,7 @@ alias gb='gedit ~/.bashrc'
 alias Lr='sh /home/simileciwh/catkin_new/src/multiagents_pathplanning/launch/include/load_multiple_robots/load_multiple_robots.sh'
 alias Pg='sh /home/simileciwh/catkin_new/src/multiagents_pathplanning/launch/include/pub_robots_goals/pub_robots_goals.sh'
 alias pycharm='cd /opt/pycharm-professional-2018.1.4/pycharm-2018.1.4/bin && ./pycharm.sh'
+alias update='sudo apt-get update'
 
 export ROS_HOSTNAME=pcMaster
 export ROS_MASTER_URI=http://pcMaster:11311
