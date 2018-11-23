@@ -44,10 +44,19 @@ Plugin 'tpope/vim-eunuch'
 ":SudoEdit: Edit a privileged file with sudo.
 Plugin 'kien/ctrlp.vim'
 Plugin 'python-mode/python-mode'
+Plugin 'airblade/vim-gitgutter'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call vundle#end()            " required
 "##################################
+"gitgutter setting
+let g:gitgutter_terminal_reports_focus = 0
+let g:gitgutter_enable = 1
+let g:gitgutter_signs = 1
+let g:gitgutter_highlight_lines = 0
+let g:gitgutter_async = 0
+let g:gitgutter_max_signs = 500
+
 "python-mode setting
 let g:pymod_python = 'python'
 let g:pymode = 1
@@ -272,42 +281,52 @@ func SetComment_ch()
 	call append(line(".")+10, "")
 endfunc
 
-" add comment for shell,Makefile
 func SetComment_sh()
-	call setline(4, "#================================================================")
-	call setline(5, "#   Copyright (C) ".strftime("%Y")." * Ltd. All rights reserved.")
-	call setline(6, "#")
-	call setline(7, "#   File name   : ".expand("%:t"))
-	call setline(8, "#   Author      : simileciWH")
-	call setline(9, "#   Email       : simileci.wh.32@outlook.com")
-	call setline(10, "#   Created date: ".strftime("%F %T"))
-	call setline(11, "#   Description : code is far away from bugs with the god animal protecting")
-	call setline(12, "#")
-	call setline(13, "#================================================================")
-	call setline(15, "")
-	call setline(16, "")
-endfunc
+	call setline(4,"#__Filename__ : ".expand("%:t"))
+	call setline(5,"#__Auther__   : simileciwh")
+	call setline(6,"#Email        : simileci.wh.32@outlook.com")
+	call setline(7,"#Created date : ".strftime("%F %T"))
+	call setline(8,"# code is far away from bugs with the god animal protecting")
+	call setline(9,"#    I love animals. I have a lovely doggy!")
+	call setline(10,"#              ┏┓     ┏┓")
+	call setline(11,"#             ┏┛┻━━━━━┛┻┓")
+	call setline(12,"#             ┃    ☃    ┃")
+	call setline(13,"#             ┃  ┳┛  ┗┳ ┃")
+	call setline(14,"#             ┃     ┻   ┃")
+	call setline(15,"#             ┗━┓     ┏━┛")
+	call setline(16,"#               ┃     ┗━━━┓")
+	call setline(17,"#               ┃   神兽保佑  ┣┓")
+	call setline(18,"#               ┃   永无BUG!   ┏┛")
+	call setline(19,"#               ┗┓┓┏━━┳┓┏┛")
+	call setline(20,"#                ┃┫┫  ┃┫┫")
+	call setline(21,"#                ┗┻┛  ┗┻┛")
+endfunc 
 
 " SetTitle func, add comment
 func SetTitle()
 	if &filetype == 'make'
 		call setline(1,"")
 		call setline(2,"")
+		call setline(3,"")
 		call SetComment_sh()
+		call setline(22,"")
+		exe "normal G"
 
 	elseif &filetype == 'sh'
 		call setline(1,"#! /bin/bash")
-		call setline(2,"")
+	    call setline(2,"")
 		call setline(3,"")
-		call setline(14,"")
 		call SetComment_sh()
-
+		call setline(22,"")
+        exe "normal G"
+        
 	elseif &filetype == 'python'
-		call setline(1,"#! /usr/bin/env python")
-		call setline(2,"# coding=utf-8")
-		call setline(3,"'''")
-		call setline(14, "'''")
+	    call setline(1,"#!/usr/bin/env python")
+	    call setline(2,"#-*- coding: utf-8 -*-")
+	    call setline(3,"\"\"\"")
 		call SetComment_sh()
+		call setline(22,"\"\"\"")
+	    exe "normal G"
 
 	else
 		call SetComment_ch()
