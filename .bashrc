@@ -141,6 +141,8 @@ source ~/ws_moveit/devel/setup.bash
 source /home/simileciwh/ROS_Library/cartographer/install_isolated/setup.bash
 
 alias cw='cd ~/catkin_ws'
+alias v='vim'
+alias g='gedit'
 alias cnw='cd ~/catkin_new'
 alias vip='sudo vim /etc/hosts'
 alias sb='source ~/.bashrc'
