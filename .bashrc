@@ -143,6 +143,7 @@ source /home/simileciwh/ROS_Library/cartographer/install_isolated/setup.bash
 alias cw='cd ~/catkin_ws'
 alias v='vim'
 alias g='gedit'
+alias ports='netstat -tulpn'
 alias cnw='cd ~/catkin_new'
 alias vip='sudo vim /etc/hosts'
 alias sb='source ~/.bashrc'
@@ -153,7 +154,7 @@ alias Lr='sh /home/simileciwh/catkin_new/src/multiagents_pathplanning/launch/inc
 alias Pg='sh /home/simileciwh/catkin_new/src/multiagents_pathplanning/launch/include/pub_robots_goals/pub_robots_goals.sh'
 alias pycharm='cd /opt/pycharm-professional-2018.1.4/pycharm-2018.1.4/bin && ./pycharm.sh'
 alias update='sudo apt-get update'
-
+alias instal='sudo apt-get install'
 export ROS_HOSTNAME=pcMaster
 export ROS_MASTER_URI=http://pcMaster:11311
 export TURTLEBOT3_MODEL=burger
