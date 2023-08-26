@@ -1,2 +1,2 @@
-# simileciWH_vimrc_tmux_bashrc_config
-This is my vim configure file for vim, tmux, and bashrc
+# simileciWH_cfg
+This is my vim configure file for vim, emacs, tmux, bashrc, zsh, alias ... etc.
